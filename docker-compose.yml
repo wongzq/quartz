@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  quartz:
+    container_name: quartz
+    image: wongzq/quartz:latest
+    restart: always
+    env_file:
+      - .quartz.env
+
+volumes:
+  mysql-data: null
