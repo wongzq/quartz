@@ -14,7 +14,7 @@ const client = new Client({
 client.login(Env.DISCORD_APP_TOKEN);
 
 client.on("ready", () => {
-  console.log("amethyst is ready");
+  console.log("quartz is ready");
 });
 
 // sticker factory
