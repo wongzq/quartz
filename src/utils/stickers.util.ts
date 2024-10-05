@@ -1,5 +1,6 @@
-import { Sticker } from "discord.js";
-import { convertImageURLtoURI, EMimeType } from "./image.util";
+import { Sticker } from 'discord.js';
+
+import { EMimeType, convertImageURLtoURI } from './image.util';
 
 export const parseSticker = async (sticker: Sticker) => {
   const gifURL = `https://media.discordapp.net/stickers/${sticker.id}.gif`;
@@ -27,14 +28,14 @@ export const parseSticker = async (sticker: Sticker) => {
   if (gifURI) {
     return {
       name: `uus_${sticker.name}`,
-      tags: "uu",
+      tags: 'uu',
       url: gifURL,
     };
   }
   if (pngURI) {
     return {
       name: `uus_${sticker.name}`,
-      tags: "uu",
+      tags: 'uu',
       url: pngURL,
     };
   }

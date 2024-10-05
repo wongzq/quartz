@@ -1,6 +1,7 @@
-import { Client, IntentsBitField } from "discord.js";
-import Env from "./env";
-import { parseSticker } from "./utils/stickers.util";
+import { Client, IntentsBitField } from 'discord.js';
+
+import Env from './env';
+import { parseSticker } from './utils/stickers.util';
 
 const client = new Client({
   intents: [
@@ -13,12 +14,12 @@ const client = new Client({
 
 client.login(Env.DISCORD_APP_TOKEN);
 
-client.on("ready", () => {
-  console.log("quartz is ready");
+client.on('ready', () => {
+  console.log('quartz is ready');
 });
 
 // sticker factory
-client.on("messageCreate", async (message) => {
+client.on('messageCreate', async (message) => {
   try {
     if (!message.guild) return;
     if (!Env.ALLOWED_STICKER_CHANNEL_IDS.includes(message.channel.id)) return;
@@ -44,13 +45,13 @@ client.on("messageCreate", async (message) => {
     }
 
     if (!successfullyAddedSticker) {
-      throw Error("不懂为什么，无法加贴图 :thinking:");
+      throw Error('不懂为什么，无法加贴图 :thinking:');
     }
   } catch (err) {
     message.reply(
       `不好意思，这里出了问题 :sweat:\n` +
         `求求你帮我嘛，我看不明白呢 :face_holding_back_tears:\n` +
-        `\`\`\`\n${String(err)}\`\`\``
+        `\`\`\`\n${String(err)}\`\`\``,
     );
   }
 });
